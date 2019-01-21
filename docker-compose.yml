@@ -15,13 +15,22 @@ services:
     labels:
       kompose.service.type: nodeport
     environment:
-      - DB_HOST=mariadb
-      - DB_USERNAME=my_user
-      - DB_DATABASE=my_database
-      - DB_PASSWORD=my_password
+      -  DB_HOST=krev-postgresql
+      -  DB_DATABASE=testing
+      -  DB_USERNAME=testing_login
+      -  DB_PASSWORD=testing
+      -  DB_CONNECTION=pgsql
+      -  DB_PORT=5432
+      -  KREV_K_NUMBER=5
+      -  KREV_EV_DELAY=48
+      -  KREV_IDENTITY_HOST=krev-identity
+      -  KREV_IDENTITY_PORT=50051
+      -  KREV_MEMO_MIN_LENGTH=3
+      -  KREV_EV_MEMO_VISIBLE=false
+      -  APP_DEBUG=true
     depends_on:
       - mariadb
     ports:
-      - 3000:3000
+      - 2000:3000
     volumes:
       - ./:/app

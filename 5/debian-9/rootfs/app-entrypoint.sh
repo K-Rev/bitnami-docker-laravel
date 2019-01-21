@@ -46,7 +46,7 @@ if [ "${1}" == "php" -a "$2" == "artisan" -a "$3" == "serve" ]; then
   composer install
   log "Dependencies updated"
 
-  wait_for_db
+  #wait_for_db
 
   if ! fresh_container; then
     echo "#########################################################################"
@@ -58,7 +58,7 @@ if [ "${1}" == "php" -a "$2" == "artisan" -a "$3" == "serve" ]; then
     echo "                                                                         "
     echo "#########################################################################"
   else
-    setup_db
+    #setup_db
     log "Initialization finished"
     touch $INIT_SEM
   fi
